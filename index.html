@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>南通璞声汽车音响改装 | 13年行业经验</title>
   <meta name="description" content="南通璞声专业汽车音响改装，13年老店。代理丹拿、摩雷、劲浪、JL Audio等20余个国际一线品牌。电话：13061888816">
-  <meta name="keywords" content="南通汽车音响改装,南通汽车音响,汽车音响升级,汽车隔音降噪,南通音响改装,南通隔音">
   <link rel="canonical" href="https://www.pusound.cn/">
   <style>
     :root {
@@ -17,40 +16,47 @@
       --muted: #888;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html, body { height: 100%; overflow: hidden; }
     body {
       font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
       background: var(--dark);
       color: var(--text);
+      height: 100dvh;
+      display: flex;
+      flex-direction: column;
     }
 
     /* ── NAV ── */
     nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
       display: flex;
       align-items: center;
       padding: 0 20px;
       height: 56px;
-      background: rgba(10,10,10,0.95);
-      backdrop-filter: blur(12px);
+      background: rgba(10,10,10,0.97);
       border-bottom: 1px solid rgba(255,255,255,0.06);
+      flex-shrink: 0;
       z-index: 100;
       gap: 12px;
     }
-    nav .logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
+    .nav-back {
+      display: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      border: none;
+      color: #fff;
+      font-size: 16px;
       cursor: pointer;
+      align-items: center;
+      justify-content: center;
     }
+    .nav-back.show { display: flex; }
+    nav .logo { display: flex; align-items: center; gap: 8px; }
     nav .logo-img { height: 28px; width: auto; }
     nav .logo-text { font-size: 0.9rem; font-weight: 700; letter-spacing: 1px; color: #fff; }
     nav .spacer { flex: 1; }
-    nav .tel { font-size: 0.75rem; color: var(--gold); text-decoration: none; white-space: nowrap; }
+    nav .tel { font-size: 0.75rem; color: var(--gold); text-decoration: none; }
     nav .hamburger {
       display: flex;
       flex-direction: column;
@@ -66,6 +72,7 @@
     nav .hamburger.open span:nth-child(2) { opacity: 0; }
     nav .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
+    /* ── MOBILE MENU ── */
     .mobile-menu {
       position: fixed;
       top: 56px;
@@ -89,32 +96,51 @@
       cursor: pointer;
     }
     .mobile-menu a:last-child { color: var(--gold); font-weight: 600; }
+    .mobile-menu a.active { color: var(--gold); }
 
-    /* ── SECTIONS ── */
-    section { padding: 80px 20px; max-width: 960px; margin: 0 auto; }
-    .section-label {
-      display: inline-block;
-      background: rgba(212,175,55,0.1);
-      border: 1px solid rgba(212,175,55,0.2);
-      color: var(--gold);
-      font-size: 0.7rem;
-      letter-spacing: 2px;
-      padding: 4px 14px;
-      border-radius: 20px;
-      margin-bottom: 14px;
+    /* ── DESKTOP TABS ── */
+    .page-tabs {
+      display: none;
+      background: var(--darker);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      flex-shrink: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
     }
-    .section-title { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 700; color: #fff; margin-bottom: 8px; }
-    .section-sub { font-size: 0.88rem; color: var(--muted); margin-bottom: 28px; }
+    .page-tabs::-webkit-scrollbar { display: none; }
+    .page-tabs a {
+      flex-shrink: 0;
+      padding: 10px 18px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .page-tabs a:hover { color: #ccc; }
+    .page-tabs a.active { color: var(--gold); border-bottom-color: var(--gold); }
 
-    /* ── HERO ── */
+    @media (min-width: 768px) {
+      .page-tabs { display: flex; }
+      nav .hamburger { display: none; }
+    }
+
+    /* ── MAIN ── */
+    main { flex: 1; overflow: hidden; position: relative; }
+    .page { display: none; height: 100%; overflow-y: auto; }
+    .page.active { display: block; }
+
+    /* ── HERO (home) ── */
     .hero {
-      min-height: 100vh;
+      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 100px 24px 80px;
+      padding: 40px 24px;
+      background: linear-gradient(160deg, #0a0a0a 0%, #1a1a1a 100%);
       position: relative;
     }
     .hero::before {
@@ -122,7 +148,7 @@
       position: absolute;
       inset: 0;
       background: url('images/shop1.webp') center/cover no-repeat;
-      opacity: 0.2;
+      opacity: 0.25;
     }
     .hero-content { position: relative; z-index: 1; max-width: 600px; }
     .hero-badge {
@@ -137,7 +163,7 @@
       letter-spacing: 1px;
     }
     .hero h1 {
-      font-size: clamp(2rem, 7vw, 3.4rem);
+      font-size: clamp(2rem, 7vw, 3.2rem);
       font-weight: 700;
       color: #fff;
       line-height: 1.2;
@@ -159,92 +185,58 @@
     .hero-cta:hover { opacity: 0.85; }
     .hero-stats { display: flex; justify-content: center; gap: 40px; margin-top: 40px; }
     .hero-stat { text-align: center; }
-    .hero-stat-num { font-size: 2.4rem; font-weight: 700; color: var(--gold); }
+    .hero-stat-num { font-size: 2.2rem; font-weight: 700; color: var(--gold); }
     .hero-stat-label { font-size: 0.75rem; color: #777; margin-top: 4px; }
 
+    /* ── PAGE INNER ── */
+    .page-inner { padding: 24px 20px; max-width: 900px; margin: 0 auto; }
+    .page-title { font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .page-sub { font-size: 0.82rem; color: var(--muted); margin-bottom: 22px; }
+
     /* ── BRANDS ── */
-    .brand-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
-    .brand-card {
-      background: var(--card);
-      border-radius: 12px;
-      padding: 20px 14px;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-    .brand-card .brand-name { font-size: 0.88rem; font-weight: 600; color: #fff; margin-top: 10px; }
-    .brand-card .brand-note { font-size: 0.68rem; color: var(--muted); margin-top: 4px; }
-    .brand-icon { font-size: 1.8rem; }
+    .brand-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+    .brand-card { background: var(--card); border-radius: 12px; padding: 18px 14px; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
+    .brand-card .brand-name { font-size: 0.85rem; font-weight: 600; color: #fff; margin-top: 8px; }
+    .brand-card .brand-note { font-size: 0.65rem; color: var(--muted); margin-top: 4px; }
+    .brand-icon { font-size: 1.6rem; }
 
     /* ── ABOUT ── */
-    .about-wrap { display: flex; flex-direction: column; gap: 20px; }
-    .about-text {
-      background: var(--card);
-      border-radius: 16px;
-      padding: 24px;
-      line-height: 1.8;
-      color: #ccc;
-      font-size: 0.9rem;
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-    .carousel { position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 16/9; background: #151515; }
+    .about-text { background: var(--card); border-radius: 14px; padding: 20px; line-height: 1.8; color: #ccc; font-size: 0.88rem; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 16px; }
+    .carousel { position: relative; border-radius: 14px; overflow: hidden; aspect-ratio: 16/9; background: #151515; margin-bottom: 16px; }
     .carousel-track { display: flex; height: 100%; transition: transform 0.5s ease; }
     .carousel-track img { width: 100%; height: 100%; object-fit: cover; flex-shrink: 0; }
-    .carousel-dots { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; }
+    .carousel-dots { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; }
     .carousel-dots .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.4); cursor: pointer; }
     .carousel-dots .dot.active { background: var(--gold); }
-    .carousel-btn {
-      position: absolute; top: 50%; transform: translateY(-50%);
-      width: 32px; height: 32px; border-radius: 50%;
-      background: rgba(0,0,0,0.5); color: #fff; border: none;
-      font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center;
-    }
+    .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 28px; height: 28px; border-radius: 50%; background: rgba(0,0,0,0.5); color: #fff; border: none; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
     .carousel-btn:hover { background: rgba(0,0,0,0.7); }
-    .carousel-prev { left: 10px; }
-    .carousel-next { right: 10px; }
-    .about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .value-card { background: var(--card); border-radius: 12px; padding: 18px; border: 1px solid rgba(255,255,255,0.05); }
-    .value-card .value-num { font-size: 1.5rem; font-weight: 700; color: var(--gold); }
-    .value-card .value-label { font-size: 0.78rem; color: #aaa; margin-top: 4px; }
+    .carousel-prev { left: 8px; }
+    .carousel-next { right: 8px; }
+    .about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .value-card { background: var(--card); border-radius: 12px; padding: 16px; border: 1px solid rgba(255,255,255,0.05); }
+    .value-card .value-num { font-size: 1.3rem; font-weight: 700; color: var(--gold); }
+    .value-card .value-label { font-size: 0.75rem; color: #aaa; margin-top: 4px; }
 
     /* ── SERVICES ── */
-    .service-list { display: flex; flex-direction: column; gap: 14px; }
-    .service-card {
-      background: var(--card);
-      border-radius: 14px;
-      padding: 20px;
-      border: 1px solid rgba(255,255,255,0.05);
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-    }
-    .service-icon { font-size: 1.8rem; flex-shrink: 0; }
-    .service-info h3 { font-size: 1rem; font-weight: 600; color: #fff; margin-bottom: 6px; }
-    .service-info p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
-    .service-price { margin-top: 8px; font-size: 0.8rem; color: var(--gold); font-weight: 600; }
+    .service-list { display: flex; flex-direction: column; gap: 12px; }
+    .service-card { background: var(--card); border-radius: 14px; padding: 18px; border: 1px solid rgba(255,255,255,0.05); display: flex; gap: 14px; align-items: flex-start; }
+    .service-icon { font-size: 1.6rem; flex-shrink: 0; }
+    .service-info h3 { font-size: 0.95rem; font-weight: 600; color: #fff; margin-bottom: 5px; }
+    .service-info p { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
+    .service-price { margin-top: 6px; font-size: 0.75rem; color: var(--gold); font-weight: 600; }
 
     /* ── CONTACT ── */
-    .contact-card { background: var(--card); border-radius: 16px; padding: 24px; border: 1px solid rgba(255,255,255,0.05); }
-    .contact-item { display: flex; align-items: center; gap: 14px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .contact-card { background: var(--card); border-radius: 14px; padding: 20px; border: 1px solid rgba(255,255,255,0.05); }
+    .contact-item { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
     .contact-item:last-child { border-bottom: none; }
-    .contact-item .ci-icon { font-size: 1.4rem; }
-    .contact-item .ci-label { font-size: 0.72rem; color: var(--muted); margin-bottom: 2px; }
-    .contact-item .ci-value { font-size: 0.92rem; color: #fff; font-weight: 500; }
+    .contact-item .ci-icon { font-size: 1.3rem; }
+    .contact-item .ci-label { font-size: 0.7rem; color: var(--muted); margin-bottom: 1px; }
+    .contact-item .ci-value { font-size: 0.88rem; color: #fff; font-weight: 500; }
     .contact-item a.ci-value { color: var(--gold); text-decoration: none; }
 
-    /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      color: #444;
-      font-size: 0.75rem;
-      border-top: 1px solid rgba(255,255,255,0.04);
-    }
-
     @media (min-width: 768px) {
-      .about-wrap { flex-direction: row; align-items: flex-start; }
-      .about-wrap .about-left { flex: 1; }
-      .about-wrap .about-right { flex: 1; }
       .about-values { grid-template-columns: repeat(4, 1fr); }
+      .brand-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
     }
   </style>
 </head>
@@ -252,6 +244,7 @@
 
 <!-- NAV -->
 <nav>
+  <button class="nav-back" id="navBack" onclick="goHome()">‹</button>
   <div class="logo">
     <img src="/images/logo-pusound.webp" alt="璞声" class="logo-img" onerror="this.src='/images/logo-pusound.jpg'" loading="lazy">
     <span class="logo-text">璞声</span>
@@ -265,76 +258,68 @@
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <a onclick="document.getElementById('brands').scrollIntoView({behavior:'smooth'}); toggleMenu()">品牌代理</a>
-  <a onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'}); toggleMenu()">关于璞声</a>
-  <a onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'}); toggleMenu()">服务项目</a>
-  <a onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'}); toggleMenu()">联系璞声</a>
+  <a onclick="goPage('brands')">品牌代理</a>
+  <a onclick="goPage('about')">关于璞声</a>
+  <a onclick="goPage('services')">服务项目</a>
+  <a onclick="goPage('contact')">联系璞声</a>
 </div>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-content">
-    <div class="hero-badge">南通 · 13年专注</div>
-    <h1>让每一次出行<br>都是音乐厅</h1>
-    <p class="hero-desc">专业汽车音响改装 · 隔音降噪 · DSP调音</p>
-    <p class="hero-tagline">南通璞声 · 20+国际品牌授权</p>
-    <a href="tel:13061888816" class="hero-cta">📞 立即预约体验</a>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-num">13</div>
-        <div class="hero-stat-label">年行业经验</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">20+</div>
-        <div class="hero-stat-label">授权品牌</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">终身</div>
-        <div class="hero-stat-label">售后服务</div>
+<!-- DESKTOP TABS -->
+<div class="page-tabs">
+  <a onclick="goPage('home')">首页</a>
+  <a onclick="goPage('brands')">品牌代理</a>
+  <a onclick="goPage('about')">关于璞声</a>
+  <a onclick="goPage('services')">服务项目</a>
+  <a onclick="goPage('contact')">联系璞声</a>
+</div>
+
+<!-- MAIN -->
+<main>
+  <!-- HOME -->
+  <div class="page active" id="page-home">
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">南通 · 13年专注</div>
+        <h1>让每一次出行<br>都是音乐厅</h1>
+        <p class="hero-desc">专业汽车音响改装 · 隔音降噪 · DSP调音</p>
+        <p class="hero-tagline">南通璞声 · 20+国际品牌授权</p>
+        <a href="tel:13061888816" class="hero-cta">📞 立即预约体验</a>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="hero-stat-num">13</div><div class="hero-stat-label">年行业经验</div></div>
+          <div class="hero-stat"><div class="hero-stat-num">20+</div><div class="hero-stat-label">授权品牌</div></div>
+          <div class="hero-stat"><div class="hero-stat-num">终身</div><div class="hero-stat-label">售后服务</div></div>
+        </div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- BRANDS -->
-<section id="brands">
-  <div class="section-label">BRANDS</div>
-  <div class="section-title">品牌代理</div>
-  <div class="section-sub">20+国际一线品牌授权 · 均为正品行货</div>
-  <div class="brand-grid">
-    <div class="brand-card"><div class="brand-icon">🔈</div><div class="brand-name">Dynaudio 丹拿</div><div class="brand-note">丹麦顶级扬声器</div></div>
-    <div class="brand-card"><div class="brand-icon">🎵</div><div class="brand-name">Focal 劲浪</div><div class="brand-note">法国Hi-Fi标杆</div></div>
-    <div class="brand-card"><div class="brand-icon">🔊</div><div class="brand-name">JL Audio</div><div class="brand-note">美国低音之王</div></div>
-    <div class="brand-card"><div class="brand-icon">🎶</div><div class="brand-name">Morel 摩雷</div><div class="brand-note">以色列 Acoustic</div></div>
-    <div class="brand-card"><div class="brand-icon">🔉</div><div class="brand-name">Helix 喜力仕</div><div class="brand-note">德国功放/处理器</div></div>
-    <div class="brand-card"><div class="brand-icon">🎛️</div><div class="brand-name">AudioControl</div><div class="brand-note">美国DSP专家</div></div>
-    <div class="brand-card"><div class="brand-icon">🔈</div><div class="brand-name">Audison 奥斯丁</div><div class="brand-note">意大利 Hi-Fi</div></div>
-    <div class="brand-card"><div class="brand-icon">🎵</div><div class="brand-name">Pioneer 先锋</div><div class="brand-note">日本影音导航</div></div>
-    <div class="brand-card"><div class="brand-icon">🔊</div><div class="brand-name">Alpine 阿尔派</div><div class="brand-note">日本专业音频</div></div>
-    <div class="brand-card"><div class="brand-icon">🔉</div><div class="brand-name">Ground Zero</div><div class="brand-note">德国零点</div></div>
-    <div class="brand-card"><div class="brand-icon">🎛️</div><div class="brand-name">Mosconi 摩斯康尼</div><div class="brand-note">意大利顶级功放</div></div>
-    <div class="brand-card"><div class="brand-icon">🔈</div><div class="brand-name">STEG 史泰格</div><div class="brand-note">意大利 Hi-End</div></div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="section-label">ABOUT</div>
-  <div class="section-title">关于璞声</div>
-  <div class="section-sub">南通 · 2012年创立 · 让每一次出行都是音乐厅</div>
-  <div class="about-wrap">
-    <div class="about-left">
-      <div class="about-text">
-        <p>璞声（ Pusound ）创立于2012年，13年来专注于汽车音响改装与隔音降噪领域。我们代理丹拿、劲浪、摩雷、JL Audio等20余个国际一线品牌，坚持"无损改装"理念，所有安装采用对插方式，不破线、不剪线，充分保障原车线路和质保。</p>
-      </div>
-      <div class="about-values" style="margin-top:16px">
-        <div class="value-card"><div class="value-num">13年</div><div class="value-label">行业深耕</div></div>
-        <div class="value-card"><div class="value-num">20+</div><div class="value-label">授权品牌</div></div>
-        <div class="value-card"><div class="value-num">无损</div><div class="value-label">安装理念</div></div>
-        <div class="value-card"><div class="value-num">终身</div><div class="value-label">售后服务</div></div>
+  <!-- BRANDS -->
+  <div class="page" id="page-brands">
+    <div class="page-inner">
+      <div class="page-title">品牌代理</div>
+      <div class="page-sub">20+国际一线品牌授权 · 均为正品行货</div>
+      <div class="brand-grid">
+        <div class="brand-card"><div class="brand-icon">🔈</div><div class="brand-name">Dynaudio 丹拿</div><div class="brand-note">丹麦顶级扬声器</div></div>
+        <div class="brand-card"><div class="brand-icon">🎵</div><div class="brand-name">Focal 劲浪</div><div class="brand-note">法国Hi-Fi标杆</div></div>
+        <div class="brand-card"><div class="brand-icon">🔊</div><div class="brand-name">JL Audio</div><div class="brand-note">美国低音之王</div></div>
+        <div class="brand-card"><div class="brand-icon">🎶</div><div class="brand-name">Morel 摩雷</div><div class="brand-note">以色列 Acoustic</div></div>
+        <div class="brand-card"><div class="brand-icon">🔉</div><div class="brand-name">Helix 喜力仕</div><div class="brand-note">德国功放/处理器</div></div>
+        <div class="brand-card"><div class="brand-icon">🎛️</div><div class="brand-name">AudioControl</div><div class="brand-note">美国DSP专家</div></div>
+        <div class="brand-card"><div class="brand-icon">🔈</div><div class="brand-name">Audison 奥斯丁</div><div class="brand-note">意大利 Hi-Fi</div></div>
+        <div class="brand-card"><div class="brand-icon">🎵</div><div class="brand-name">Pioneer 先锋</div><div class="brand-note">日本影音导航</div></div>
+        <div class="brand-card"><div class="brand-icon">🔊</div><div class="brand-name">Alpine 阿尔派</div><div class="brand-note">日本专业音频</div></div>
+        <div class="brand-card"><div class="brand-icon">🔉</div><div class="brand-name">Ground Zero</div><div class="brand-note">德国零点</div></div>
+        <div class="brand-card"><div class="brand-icon">🎛️</div><div class="brand-name">Mosconi 摩斯康尼</div><div class="brand-note">意大利顶级功放</div></div>
+        <div class="brand-card"><div class="brand-icon">🔈</div><div class="brand-name">STEG 史泰格</div><div class="brand-note">意大利 Hi-End</div></div>
       </div>
     </div>
-    <div class="about-right">
+  </div>
+
+  <!-- ABOUT -->
+  <div class="page" id="page-about">
+    <div class="page-inner">
+      <div class="page-title">关于璞声</div>
+      <div class="page-sub">南通 · 2012年创立 · 让每一次出行都是音乐厅</div>
       <div class="carousel" id="shopCarousel">
         <div class="carousel-track" id="carouselTrack">
           <img src="/images/shop1.webp" alt="璞声店铺" onerror="this.src='/images/shop1.jpg'" loading="lazy">
@@ -346,94 +331,120 @@
         <button class="carousel-btn carousel-prev" onclick="shiftCarousel(-1)">‹</button>
         <button class="carousel-btn carousel-next" onclick="shiftCarousel(1)">›</button>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section id="services">
-  <div class="section-label">SERVICES</div>
-  <div class="section-title">服务项目</div>
-  <div class="section-sub">量身定制 · 无损安装 · 终身售后</div>
-  <div class="service-list">
-    <div class="service-card">
-      <div class="service-icon">🔈</div>
-      <div class="service-info">
-        <h3>汽车音响升级</h3>
-        <p>根据听歌风格与预算，量身定制方案。从入门级到发烧级，涵盖扬声器、功放、DSP处理器全链条产品。</p>
-        <div class="service-price">入门3千起 · 发烧级数万元</div>
+      <div class="about-text">
+        <p>璞声（ Pusound ）创立于2012年，13年来专注于汽车音响改装与隔音降噪领域。我们代理丹拿、劲浪、摩雷、JL Audio等20余个国际一线品牌，坚持"无损改装"理念，所有安装采用对插方式，不破线、不剪线，充分保障原车线路和质保。</p>
       </div>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🔇</div>
-      <div class="service-info">
-        <h3>隔音降噪工程</h3>
-        <p>采用STP、大白鲨等顶级隔音材料，四门、底盘、尾箱、后视镜全覆盖，有效降低风噪、路噪6-15分贝。</p>
-        <div class="service-price">四门隔音参考价 ¥2800起</div>
-      </div>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🎛️</div>
-      <div class="service-info">
-        <h3>DSP调音服务</h3>
-        <p>专业DSP处理器精准调音，独立声场延时、31段EQ均衡，还原舞台立体感。支持各品牌功放、DSP匹配调试。</p>
-        <div class="service-price">调音服务含在方案内</div>
-      </div>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🚗</div>
-      <div class="service-info">
-        <h3>无损对插安装</h3>
-        <p>所有安装使用原车接口对插，线材使用焊锡连接、热缩管保护。完全不影响原车线路和4S店质保。</p>
-        <div class="service-price">标准安装工艺</div>
+      <div class="about-values">
+        <div class="value-card"><div class="value-num">13年</div><div class="value-label">行业深耕</div></div>
+        <div class="value-card"><div class="value-num">20+</div><div class="value-label">授权品牌</div></div>
+        <div class="value-card"><div class="value-num">无损</div><div class="value-label">安装理念</div></div>
+        <div class="value-card"><div class="value-num">终身</div><div class="value-label">售后服务</div></div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="section-label">CONTACT</div>
-  <div class="section-title">联系璞声</div>
-  <div class="section-sub">欢迎预约到店试听体验</div>
-  <div class="contact-card">
-    <div class="contact-item">
-      <div class="ci-icon">📍</div>
-      <div>
-        <div class="ci-label">店铺地址</div>
-        <div class="ci-value">南通市青年中路190号<br>精英汇大厦D座113室</div>
-      </div>
-    </div>
-    <div class="contact-item">
-      <div class="ci-icon">📞</div>
-      <div>
-        <div class="ci-label">联系电话</div>
-        <a class="ci-value" href="tel:13061888816">13061888816（微信同号）</a>
-      </div>
-    </div>
-    <div class="contact-item">
-      <div class="ci-icon">🕐</div>
-      <div>
-        <div class="ci-label">营业时间</div>
-        <div class="ci-value">周一至周日 09:00 – 18:30</div>
-      </div>
-    </div>
-    <div class="contact-item">
-      <div class="ci-icon">🌐</div>
-      <div>
-        <div class="ci-label">官方网站</div>
-        <a class="ci-value" href="https://www.pusound.cn">www.pusound.cn</a>
+  <!-- SERVICES -->
+  <div class="page" id="page-services">
+    <div class="page-inner">
+      <div class="page-title">服务项目</div>
+      <div class="page-sub">量身定制 · 无损安装 · 终身售后</div>
+      <div class="service-list">
+        <div class="service-card">
+          <div class="service-icon">🔈</div>
+          <div class="service-info">
+            <h3>汽车音响升级</h3>
+            <p>根据听歌风格与预算，量身定制方案。从入门级到发烧级，涵盖扬声器、功放、DSP处理器全链条产品。</p>
+            <div class="service-price">入门3千起 · 发烧级数万元</div>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔇</div>
+          <div class="service-info">
+            <h3>隔音降噪工程</h3>
+            <p>采用STP、大白鲨等顶级隔音材料，四门、底盘、尾箱全覆盖，有效降低风噪、路噪6-15分贝。</p>
+            <div class="service-price">四门隔音参考价 ¥2800起</div>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🎛️</div>
+          <div class="service-info">
+            <h3>DSP调音服务</h3>
+            <p>专业DSP处理器精准调音，独立声场延时、31段EQ均衡，还原舞台立体感。</p>
+            <div class="service-price">调音服务含在方案内</div>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🚗</div>
+          <div class="service-info">
+            <h3>无损对插安装</h3>
+            <p>所有安装使用原车接口对插，线材焊锡连接、热缩管保护，不影响原车线路和4S店质保。</p>
+            <div class="service-price">标准安装工艺</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</section>
 
-<footer>© 2024 璞声 Pusound · 南通汽车音响改装</footer>
+  <!-- CONTACT -->
+  <div class="page" id="page-contact">
+    <div class="page-inner">
+      <div class="page-title">联系璞声</div>
+      <div class="page-sub">欢迎预约到店试听体验</div>
+      <div class="contact-card">
+        <div class="contact-item">
+          <div class="ci-icon">📍</div>
+          <div>
+            <div class="ci-label">店铺地址</div>
+            <div class="ci-value">南通市青年中路190号<br>精英汇大厦D座113室</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">📞</div>
+          <div>
+            <div class="ci-label">联系电话</div>
+            <a class="ci-value" href="tel:13061888816">13061888816（微信同号）</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">🕐</div>
+          <div>
+            <div class="ci-label">营业时间</div>
+            <div class="ci-value">周一至周日 09:00 – 18:30</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">🌐</div>
+          <div>
+            <div class="ci-label">官方网站</div>
+            <a class="ci-value" href="https://www.pusound.cn">www.pusound.cn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
 
 <script>
   function toggleMenu() {
     document.getElementById('mobileMenu').classList.toggle('open');
     document.querySelector('.hamburger').classList.toggle('open');
+  }
+
+  function goPage(name) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + name).classList.add('active');
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.querySelector('.hamburger').classList.remove('open');
+    document.getElementById('navBack').classList.toggle('show', name !== 'home');
+    document.querySelectorAll('.page-tabs a').forEach(a => a.classList.remove('active'));
+    document.querySelectorAll('.mobile-menu a').forEach(a => a.classList.remove('active'));
+    document.getElementById('page-' + name).scrollTop = 0;
+  }
+
+  function goHome() {
+    goPage('home');
+    document.querySelectorAll('.page-tabs a').forEach(a => a.classList.remove('active'));
+    document.querySelector('.page-tabs a').classList.add('active');
   }
 
   // Carousel
