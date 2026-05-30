@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.pusound.cn/sitemap.xml
+
+# Crawl-delay (optional, be kind to search engines)
+Crawl-delay: 1
+
+# Block common non-essential paths
+Disallow: /videos/
+Disallow: /ffmpeg/
+Disallow: /web_images/
