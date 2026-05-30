@@ -227,8 +227,31 @@
       margin-top: 4px;
     }
 
+    /* ── HOME SHORTCUTS ── */
+    .home-shortcuts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding: 24px 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .shortcut-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      padding: 20px 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .shortcut-card:hover { background: rgba(212,175,55,0.08); border-color: rgba(212,175,55,0.2); }
+    .sc-icon { font-size: 2rem; margin-bottom: 10px; }
+    .sc-title { font-size: 0.95rem; font-weight: 600; color: #fff; margin-bottom: 6px; }
+    .sc-desc { font-size: 0.75rem; color: var(--muted); }
+
     /* ── BRANDS PAGE ── */
-    .page-inner { padding: 24px 20px40px; max-width: 900px; margin: 0 auto; }
+    .page-inner { padding: 24px 20px; max-width: 900px; margin: 0 auto; }
     .page-title {
       font-size: 1.6rem;
       font-weight: 700;
@@ -416,6 +439,29 @@
             <div class="hero-stat-label">售后服务</div>
           </div>
         </div>
+      </div>
+    </div>
+    <!-- 首页快捷入口 -->
+    <div class="home-shortcuts">
+      <div class="shortcut-card" onclick="switchPage('brands')">
+        <div class="sc-icon">🏆</div>
+        <div class="sc-title">品牌代理</div>
+        <div class="sc-desc">20+国际一线品牌授权</div>
+      </div>
+      <div class="shortcut-card" onclick="switchPage('about')">
+        <div class="sc-icon">🏠</div>
+        <div class="sc-title">关于璞声</div>
+        <div class="sc-desc">13年老店·无损改装</div>
+      </div>
+      <div class="shortcut-card" onclick="switchPage('services')">
+        <div class="sc-icon">🔧</div>
+        <div class="sc-title">服务项目</div>
+        <div class="sc-desc">音响·隔音·DSP调音</div>
+      </div>
+      <div class="shortcut-card" onclick="switchPage('contact')">
+        <div class="sc-icon">📞</div>
+        <div class="sc-title">联系璞声</div>
+        <div class="sc-desc">预约到店试听</div>
       </div>
     </div>
   </div>
