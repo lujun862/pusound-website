@@ -222,7 +222,7 @@
     }
     .carousel { position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: 16px }
     .carousel-track { display: flex; width: 400%; height: 100%; transition: transform 0.5s ease }
-    .carousel-track img { width: 25%; height: 100%; object-fit: cover; flex-shrink: 0 }
+    .carousel-track img { width: 25%; height: 100%; object-fit: contain; flex-shrink: 0; background: #151515 }
     .carousel-dots { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px }
     .carousel-dots .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.4); cursor: pointer }
     .carousel-dots .dot.active { background: #d4af37 }
@@ -231,7 +231,7 @@
     .carousel-prev { left: 10px }
     .carousel-next { right: 10px }
     .about-photo { position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 4/3; background: #151515 }
-    .about-photo img { width: 100%; height: 100%; object-fit: cover }
+    .about-photo img { width: 100%; height: 100%; object-fit: contain }
     .about-text { text-align: left }
     .about-text h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 12px }
     .about-text p { font-size: 0.85rem; color: #aaa; line-height: 1.8 }
