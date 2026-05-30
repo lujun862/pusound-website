@@ -821,6 +821,9 @@
     const total = imgs.length;
     if (!track || total === 0) return;
     let current = 0;
+    // Set track width for n slides (n images = n slides)
+    track.style.width = (total * 100) + '%';
+    imgs.forEach(img => { img.style.width = (100 / total) + '%'; });
     for (let i = 0; i < total; i++) {
       const d = document.createElement('div');
       d.className = 'dot' + (i === 0 ? ' active' : '');
@@ -829,7 +832,7 @@
     }
     function goToSlide(idx) {
       current = idx;
-      track.style.transform = `translateX(-${current * 25}%)`;
+      track.style.transform = `translateX(-${(current * 100) / total}%)`;
       dotsContainer.querySelectorAll('.dot').forEach((d, i) => {
         d.classList.toggle('active', i === current);
       });
