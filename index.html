@@ -9,11 +9,11 @@
   <style>
     :root {
       --gold: #d4af37;
+      --gold-dim: rgba(212,175,55,0.15);
       --dark: #0a0a0a;
-      --darker: #111;
       --card: #1a1a1a;
       --text: #e0e0e0;
-      --muted: #888;
+      --muted: #777;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { height: 100%; overflow: hidden; }
@@ -26,12 +26,12 @@
       flex-direction: column;
     }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
       display: flex;
       align-items: center;
       padding: 0 20px;
-      height: 56px;
+      height: 52px;
       background: rgba(10,10,10,0.97);
       border-bottom: 1px solid rgba(255,255,255,0.06);
       flex-shrink: 0;
@@ -40,8 +40,8 @@
     }
     .nav-back {
       display: none;
-      width: 28px;
-      height: 28px;
+      width: 26px;
+      height: 26px;
       border-radius: 50%;
       background: rgba(255,255,255,0.08);
       border: none;
@@ -53,15 +53,15 @@
     }
     .nav-back.show { display: flex; }
     nav .logo { display: flex; align-items: center; gap: 8px; }
-    nav .logo-img { height: 28px; width: auto; }
-    nav .logo-text { font-size: 0.9rem; font-weight: 700; letter-spacing: 1px; color: #fff; }
+    nav .logo-img { height: 26px; width: auto; }
+    nav .logo-text { font-size: 0.88rem; font-weight: 700; letter-spacing: 1px; color: #fff; }
     nav .spacer { flex: 1; }
-    nav .tel { font-size: 0.75rem; color: var(--gold); text-decoration: none; }
+    nav .tel { font-size: 0.72rem; color: var(--gold); text-decoration: none; }
     nav .hamburger {
       display: flex;
       flex-direction: column;
       gap: 5px;
-      width: 24px;
+      width: 22px;
       cursor: pointer;
       padding: 4px;
       background: none;
@@ -72,10 +72,10 @@
     nav .hamburger.open span:nth-child(2) { opacity: 0; }
     nav .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-    /* ── MOBILE MENU ── */
+    /* MOBILE MENU */
     .mobile-menu {
       position: fixed;
-      top: 56px;
+      top: 52px;
       left: 0;
       right: 0;
       background: rgba(10,10,10,0.98);
@@ -88,20 +88,19 @@
     .mobile-menu.open { transform: translateY(0); }
     .mobile-menu a {
       display: block;
-      padding: 16px 24px;
+      padding: 14px 24px;
       color: #ccc;
       text-decoration: none;
-      font-size: 1rem;
+      font-size: 0.95rem;
       border-bottom: 1px solid rgba(255,255,255,0.04);
       cursor: pointer;
     }
     .mobile-menu a:last-child { color: var(--gold); font-weight: 600; }
-    .mobile-menu a.active { color: var(--gold); }
 
-    /* ── DESKTOP TABS ── */
+    /* DESKTOP TABS */
     .page-tabs {
       display: none;
-      background: var(--darker);
+      background: #111;
       border-bottom: 1px solid rgba(255,255,255,0.06);
       flex-shrink: 0;
       overflow-x: auto;
@@ -110,10 +109,10 @@
     .page-tabs::-webkit-scrollbar { display: none; }
     .page-tabs a {
       flex-shrink: 0;
-      padding: 10px 18px;
+      padding: 9px 16px;
       color: var(--muted);
       text-decoration: none;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       border-bottom: 2px solid transparent;
       transition: all 0.2s;
       cursor: pointer;
@@ -126,12 +125,12 @@
       nav .hamburger { display: none; }
     }
 
-    /* ── MAIN ── */
+    /* MAIN */
     main { flex: 1; overflow: hidden; position: relative; }
     .page { display: none; height: 100%; overflow-y: auto; }
     .page.active { display: block; }
 
-    /* ── HERO (home) ── */
+    /* ── HERO HOME ── */
     .hero {
       height: 100%;
       display: flex;
@@ -139,8 +138,8 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 40px 24px;
-      background: linear-gradient(160deg, #0a0a0a 0%, #1a1a1a 100%);
+      padding: 20px 24px;
+      background: linear-gradient(160deg, #0a0a0a 0%, #181818 100%);
       position: relative;
     }
     .hero::before {
@@ -148,126 +147,150 @@
       position: absolute;
       inset: 0;
       background: url('images/shop1.webp') center/cover no-repeat;
-      opacity: 0.25;
+      opacity: 0.2;
     }
-    .hero-content { position: relative; z-index: 1; max-width: 600px; }
+    .hero-content { position: relative; z-index: 1; max-width: 560px; }
     .hero-badge {
       display: inline-block;
-      background: rgba(212,175,55,0.15);
-      border: 1px solid rgba(212,175,55,0.3);
+      background: var(--gold-dim);
+      border: 1px solid rgba(212,175,55,0.25);
       color: var(--gold);
-      font-size: 0.75rem;
-      padding: 4px 14px;
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      padding: 3px 12px;
       border-radius: 20px;
-      margin-bottom: 20px;
-      letter-spacing: 1px;
+      margin-bottom: 18px;
+      text-transform: uppercase;
     }
     .hero h1 {
-      font-size: clamp(2rem, 7vw, 3.2rem);
+      font-size: clamp(1.9rem, 7vw, 3rem);
       font-weight: 700;
       color: #fff;
       line-height: 1.2;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
     }
-    .hero-tagline { font-size: 1rem; color: #999; margin-bottom: 28px; font-weight: 400; line-height: 1.6; }
-    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; }
+    .hero-tagline {
+      font-size: 0.92rem;
+      color: #888;
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+    .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
     .hero-cta {
       display: inline-block;
       background: var(--gold);
       color: #000;
       font-weight: 700;
-      padding: 13px 30px;
+      padding: 12px 28px;
       border-radius: 30px;
       text-decoration: none;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       transition: opacity 0.2s;
     }
     .hero-cta:hover { opacity: 0.85; }
     .hero-cta2 {
       display: inline-block;
-      background: rgba(255,255,255,0.08);
-      color: #fff;
+      background: rgba(255,255,255,0.07);
+      color: #ddd;
       font-weight: 600;
-      padding: 13px 30px;
+      padding: 12px 28px;
       border-radius: 30px;
       text-decoration: none;
-      font-size: 0.95rem;
-      border: 1px solid rgba(255,255,255,0.12);
+      font-size: 0.9rem;
+      border: 1px solid rgba(255,255,255,0.1);
       transition: all 0.2s;
       cursor: pointer;
     }
     .hero-cta2:hover { background: rgba(255,255,255,0.12); }
-    .hero-stats { display: flex; justify-content: center; align-items: center; gap: 24px; }
-    .hero-stat { text-align: center; }
-    .hero-stat-num { font-size: 2rem; font-weight: 700; color: var(--gold); }
-    .hero-stat-label { font-size: 0.72rem; color: #777; margin-top: 2px; }
-    .hero-stat-div { width: 1px; height: 30px; background: rgba(255,255,255,0.1); }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      overflow: hidden;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .hero-stat { flex: 1; padding: 14px 8px; text-align: center; }
+    .hero-stat + .hero-stat { border-left: 1px solid rgba(255,255,255,0.06); }
+    .hero-stat-num { font-size: 1.6rem; font-weight: 700; color: var(--gold); line-height: 1; }
+    .hero-stat-label { font-size: 0.65rem; color: #666; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
 
-    /* ── HOME SHORTCUTS ── */
-    .home-shortcuts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 12px 20px 16px; }
+    /* HOME SHORTCUTS */
+    .home-shortcuts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      padding: 16px 20px 20px;
+    }
     .shortcut-card {
-      background: rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.07);
       border-radius: 14px;
-      padding: 18px 14px;
+      padding: 16px 12px;
       text-align: center;
       cursor: pointer;
       transition: all 0.2s;
     }
-    .shortcut-card:hover { background: rgba(212,175,55,0.1); border-color: rgba(212,175,55,0.25); }
-    .sc-icon { font-size: 1.8rem; margin-bottom: 8px; }
-    .sc-title { font-size: 0.9rem; font-weight: 600; color: #fff; margin-bottom: 4px; }
-    .sc-sub { font-size: 0.7rem; color: #666; }
+    .shortcut-card:hover { background: rgba(212,175,55,0.08); border-color: rgba(212,175,55,0.2); }
+    .sc-icon { font-size: 1.6rem; margin-bottom: 8px; }
+    .sc-title { font-size: 0.88rem; font-weight: 600; color: #fff; margin-bottom: 4px; }
+    .sc-sub { font-size: 0.68rem; color: #666; }
 
-    /* ── PAGE INNER ── */
-    .page-inner { padding: 24px 20px; max-width: 900px; margin: 0 auto; }
-    .page-title { font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
-    .page-sub { font-size: 0.82rem; color: var(--muted); margin-bottom: 22px; }
+    /* PAGE INNER */
+    .page-inner { padding: 20px 20px; max-width: 900px; margin: 0 auto; }
+    .page-title { font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .page-sub { font-size: 0.78rem; color: var(--muted); margin-bottom: 18px; }
 
-    /* ── BRANDS ── */
-    .brand-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
-    .brand-card { background: var(--card); border-radius: 12px; padding: 18px 14px; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
-    .brand-card .brand-name { font-size: 0.85rem; font-weight: 600; color: #fff; margin-top: 8px; }
-    .brand-card .brand-note { font-size: 0.65rem; color: var(--muted); margin-top: 4px; }
-    .brand-icon { font-size: 1.6rem; }
+    /* BRANDS */
+    .brand-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; }
+    .brand-card { background: var(--card); border-radius: 12px; padding: 16px 10px; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
+    .brand-card .brand-name { font-size: 0.8rem; font-weight: 600; color: #fff; margin-top: 8px; }
+    .brand-card .brand-note { font-size: 0.62rem; color: var(--muted); margin-top: 3px; }
+    .brand-icon { font-size: 1.5rem; }
 
-    /* ── ABOUT ── */
-    .about-text { background: var(--card); border-radius: 14px; padding: 20px; line-height: 1.8; color: #ccc; font-size: 0.88rem; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 16px; }
-    .carousel { position: relative; border-radius: 14px; overflow: hidden; aspect-ratio: 16/9; background: #151515; margin-bottom: 16px; }
+    /* ABOUT */
+    .about-text { background: var(--card); border-radius: 14px; padding: 18px; line-height: 1.8; color: #bbb; font-size: 0.86rem; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 14px; }
+    .carousel { position: relative; border-radius: 14px; overflow: hidden; aspect-ratio: 16/9; background: #151515; margin-bottom: 14px; }
     .carousel-track { display: flex; height: 100%; transition: transform 0.5s ease; }
     .carousel-track img { width: 100%; height: 100%; object-fit: cover; flex-shrink: 0; }
     .carousel-dots { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; }
-    .carousel-dots .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.4); cursor: pointer; }
+    .carousel-dots .dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.4); cursor: pointer; }
     .carousel-dots .dot.active { background: var(--gold); }
     .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 28px; height: 28px; border-radius: 50%; background: rgba(0,0,0,0.5); color: #fff; border: none; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
     .carousel-btn:hover { background: rgba(0,0,0,0.7); }
     .carousel-prev { left: 8px; }
     .carousel-next { right: 8px; }
     .about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .value-card { background: var(--card); border-radius: 12px; padding: 16px; border: 1px solid rgba(255,255,255,0.05); }
+    .value-card { background: var(--card); border-radius: 12px; padding: 14px; border: 1px solid rgba(255,255,255,0.05); }
     .value-card .value-num { font-size: 1.3rem; font-weight: 700; color: var(--gold); }
-    .value-card .value-label { font-size: 0.75rem; color: #aaa; margin-top: 4px; }
+    .value-card .value-label { font-size: 0.72rem; color: #aaa; margin-top: 3px; }
 
-    /* ── SERVICES ── */
-    .service-list { display: flex; flex-direction: column; gap: 12px; }
-    .service-card { background: var(--card); border-radius: 14px; padding: 18px; border: 1px solid rgba(255,255,255,0.05); display: flex; gap: 14px; align-items: flex-start; }
-    .service-icon { font-size: 1.6rem; flex-shrink: 0; }
-    .service-info h3 { font-size: 0.95rem; font-weight: 600; color: #fff; margin-bottom: 5px; }
-    .service-info p { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
-    .service-price { margin-top: 6px; font-size: 0.75rem; color: var(--gold); font-weight: 600; }
+    /* SERVICES */
+    .service-list { display: flex; flex-direction: column; gap: 10px; }
+    .service-card { background: var(--card); border-radius: 12px; padding: 16px; border: 1px solid rgba(255,255,255,0.05); display: flex; gap: 12px; align-items: flex-start; }
+    .service-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .service-info h3 { font-size: 0.9rem; font-weight: 600; color: #fff; margin-bottom: 4px; }
+    .service-info p { font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
+    .service-price { margin-top: 5px; font-size: 0.72rem; color: var(--gold); font-weight: 600; }
 
-    /* ── CONTACT ── */
-    .contact-card { background: var(--card); border-radius: 14px; padding: 20px; border: 1px solid rgba(255,255,255,0.05); }
-    .contact-item { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    /* CONTACT */
+    .contact-card { background: var(--card); border-radius: 14px; padding: 18px; border: 1px solid rgba(255,255,255,0.05); }
+    .contact-item { display: flex; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
     .contact-item:last-child { border-bottom: none; }
-    .contact-item .ci-icon { font-size: 1.3rem; }
-    .contact-item .ci-label { font-size: 0.7rem; color: var(--muted); margin-bottom: 1px; }
-    .contact-item .ci-value { font-size: 0.88rem; color: #fff; font-weight: 500; }
+    .contact-item .ci-icon { font-size: 1.2rem; }
+    .contact-item .ci-label { font-size: 0.68rem; color: var(--muted); margin-bottom: 1px; }
+    .contact-item .ci-value { font-size: 0.86rem; color: #fff; font-weight: 500; }
     .contact-item a.ci-value { color: var(--gold); text-decoration: none; }
 
     @media (min-width: 768px) {
       .about-values { grid-template-columns: repeat(4, 1fr); }
-      .brand-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+      .brand-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+      .home-shortcuts { grid-template-columns: repeat(4, 1fr); max-width: 700px; margin: 0 auto; }
     }
   </style>
 </head>
@@ -310,7 +333,7 @@
   <div class="page active" id="page-home">
     <div class="hero">
       <div class="hero-content">
-        <div class="hero-badge">◈ 南通 · 13年专注汽车音响</div>
+        <div class="hero-badge">南通 · 13年专注汽车音响</div>
         <h1>让每一次出行<br>都是音乐厅</h1>
         <div class="hero-tagline">专业汽车音响改装 · 隔音降噪 · DSP调音</div>
         <div class="hero-btns">
@@ -319,9 +342,7 @@
         </div>
         <div class="hero-stats">
           <div class="hero-stat"><div class="hero-stat-num">13</div><div class="hero-stat-label">年行业经验</div></div>
-          <div class="hero-stat-div"></div>
           <div class="hero-stat"><div class="hero-stat-num">20+</div><div class="hero-stat-label">授权品牌</div></div>
-          <div class="hero-stat-div"></div>
           <div class="hero-stat"><div class="hero-stat-num">终身</div><div class="hero-stat-label">售后服务</div></div>
         </div>
       </div>
