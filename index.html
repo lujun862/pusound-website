@@ -169,24 +169,55 @@
       line-height: 1.2;
       margin-bottom: 14px;
     }
-    .hero-desc { font-size: 1rem; color: #aaa; margin-bottom: 8px; }
-    .hero-tagline { font-size: 1.3rem; color: var(--gold); margin-bottom: 30px; font-weight: 500; }
+    .hero-tagline { font-size: 1rem; color: #999; margin-bottom: 28px; font-weight: 400; line-height: 1.6; }
+    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; }
     .hero-cta {
       display: inline-block;
       background: var(--gold);
       color: #000;
       font-weight: 700;
-      padding: 14px 36px;
+      padding: 13px 30px;
       border-radius: 30px;
       text-decoration: none;
-      font-size: 1rem;
+      font-size: 0.95rem;
       transition: opacity 0.2s;
     }
     .hero-cta:hover { opacity: 0.85; }
-    .hero-stats { display: flex; justify-content: center; gap: 40px; margin-top: 40px; }
+    .hero-cta2 {
+      display: inline-block;
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      font-weight: 600;
+      padding: 13px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .hero-cta2:hover { background: rgba(255,255,255,0.12); }
+    .hero-stats { display: flex; justify-content: center; align-items: center; gap: 24px; }
     .hero-stat { text-align: center; }
-    .hero-stat-num { font-size: 2.2rem; font-weight: 700; color: var(--gold); }
-    .hero-stat-label { font-size: 0.75rem; color: #777; margin-top: 4px; }
+    .hero-stat-num { font-size: 2rem; font-weight: 700; color: var(--gold); }
+    .hero-stat-label { font-size: 0.72rem; color: #777; margin-top: 2px; }
+    .hero-stat-div { width: 1px; height: 30px; background: rgba(255,255,255,0.1); }
+
+    /* ── HOME SHORTCUTS ── */
+    .home-shortcuts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 20px 20px 24px; }
+    .shortcut-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px;
+      padding: 18px 14px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .shortcut-card:hover { background: rgba(212,175,55,0.1); border-color: rgba(212,175,55,0.25); }
+    .sc-icon { font-size: 1.8rem; margin-bottom: 8px; }
+    .sc-title { font-size: 0.9rem; font-weight: 600; color: #fff; margin-bottom: 4px; }
+    .sc-sub { font-size: 0.7rem; color: #666; }
 
     /* ── PAGE INNER ── */
     .page-inner { padding: 24px 20px; max-width: 900px; margin: 0 auto; }
@@ -279,16 +310,43 @@
   <div class="page active" id="page-home">
     <div class="hero">
       <div class="hero-content">
-        <div class="hero-badge">南通 · 13年专注</div>
+        <div class="hero-badge">◈ 南通 · 13年专注汽车音响</div>
         <h1>让每一次出行<br>都是音乐厅</h1>
-        <p class="hero-desc">专业汽车音响改装 · 隔音降噪 · DSP调音</p>
-        <p class="hero-tagline">南通璞声 · 20+国际品牌授权</p>
-        <a href="tel:13061888816" class="hero-cta">📞 立即预约体验</a>
+        <div class="hero-tagline">专业汽车音响改装 · 隔音降噪 · DSP调音</div>
+        <div class="hero-btns">
+          <a href="tel:13061888816" class="hero-cta">📞 立即预约体验</a>
+          <a onclick="goPage('brands')" class="hero-cta2">探索品牌 ›</a>
+        </div>
         <div class="hero-stats">
           <div class="hero-stat"><div class="hero-stat-num">13</div><div class="hero-stat-label">年行业经验</div></div>
+          <div class="hero-stat-div"></div>
           <div class="hero-stat"><div class="hero-stat-num">20+</div><div class="hero-stat-label">授权品牌</div></div>
+          <div class="hero-stat-div"></div>
           <div class="hero-stat"><div class="hero-stat-num">终身</div><div class="hero-stat-label">售后服务</div></div>
         </div>
+      </div>
+    </div>
+    <!-- 首页快捷入口 -->
+    <div class="home-shortcuts">
+      <div class="shortcut-card" onclick="goPage('brands')">
+        <div class="sc-icon">🏆</div>
+        <div class="sc-title">品牌代理</div>
+        <div class="sc-sub">20+国际一线品牌</div>
+      </div>
+      <div class="shortcut-card" onclick="goPage('about')">
+        <div class="sc-icon">🏠</div>
+        <div class="sc-title">关于璞声</div>
+        <div class="sc-sub">13年老店·无损改装</div>
+      </div>
+      <div class="shortcut-card" onclick="goPage('services')">
+        <div class="sc-icon">🔧</div>
+        <div class="sc-title">服务项目</div>
+        <div class="sc-sub">音响·隔音·DSP调音</div>
+      </div>
+      <div class="shortcut-card" onclick="goPage('contact')">
+        <div class="sc-icon">📞</div>
+        <div class="sc-title">联系璞声</div>
+        <div class="sc-sub">预约到店试听</div>
       </div>
     </div>
   </div>
