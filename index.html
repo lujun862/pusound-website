@@ -667,6 +667,29 @@
     window.shiftCarousel = function(dir) { goToSlide((current + dir + total) % total); };
     setInterval(() => shiftCarousel(1), 4000);
   })();
+
+  // Hero carousel init
+  (function() {
+    const track = document.getElementById('heroCarouselTrack');
+    const dotsContainer = document.getElementById('heroCarouselDots');
+    if (!track) return;
+    const slides = track.querySelectorAll('.hero-slide');
+    const total = slides.length;
+    let current = 0;
+    for (let i = 0; i < total; i++) {
+      const d = document.createElement('div');
+      d.className = 'hero-dot' + (i === 0 ? ' active' : '');
+      d.onclick = () => goToHeroSlide(i);
+      dotsContainer.appendChild(d);
+    }
+    function goToHeroSlide(idx) {
+      current = idx;
+      track.style.transform = 'translateX(-' + (current * 100 / total) + '%)';
+      dotsContainer.querySelectorAll('.hero-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+    window.shiftHeroCarousel = function(dir) { goToHeroSlide((current + dir + total) % total); };
+    setInterval(() => shiftHeroCarousel(1), 5000);
+  })();
 </script>
 </body>
 </html>
