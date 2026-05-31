@@ -316,46 +316,117 @@
 <main>
   <!-- HOME -->
   <div class="page active" id="page-home">
-    <div class="hero-compact">
-      <div class="hero-content">
-        <div class="hero-badge">南通 · 13年专注汽车音响</div>
-        <h1>让每一次出行<br>都是音乐厅</h1>
-        <div class="hero-tagline">专业汽车音响改装 · 隔音降噪 · DSP调音</div>
-        <div class="hero-btns">
-          <a href="tel:13061888816" class="hero-cta">📞 立即预约体验</a>
-          <a onclick="goPage('brands')" class="hero-cta2">探索品牌 ›</a>
+
+    <!-- VARIANT 2: Carousel hero -->
+    <div class="hero-carousel-section">
+      <div class="hero-carousel" id="heroCarousel">
+        <div class="hero-carousel-track" id="heroCarouselTrack">
+          <div class="hero-slide">
+            <div class="hero-slide-bg" style="background-image: url('images/shop1.webp')"></div>
+            <div class="hero-slide-overlay"></div>
+            <div class="hero-slide-content">
+              <div class="hero-slide-badge">汽车音响</div>
+              <div class="hero-slide-title">让每一次出行 都是音乐厅</div>
+              <div class="hero-slide-sub">13年老店 · 20+国际品牌授权</div>
+            </div>
+          </div>
+          <div class="hero-slide">
+            <div class="hero-slide-bg" style="background-image: url('images/shop3.webp')"></div>
+            <div class="hero-slide-overlay"></div>
+            <div class="hero-slide-content">
+              <div class="hero-slide-badge">隔音降噪</div>
+              <div class="hero-slide-title">STP顶级隔音 · 四门底盘全覆盖</div>
+              <div class="hero-slide-sub">告别路噪与风噪 · 驾乘更舒适</div>
+            </div>
+          </div>
+          <div class="hero-slide">
+            <div class="hero-slide-bg" style="background-image: url('images/shop5.webp')"></div>
+            <div class="hero-slide-overlay"></div>
+            <div class="hero-slide-content">
+              <div class="hero-slide-badge">DSP调音</div>
+              <div class="hero-slide-title">精准调音 · 还原舞台立体感</div>
+              <div class="hero-slide-sub">专业处理器 · 多种听音模式</div>
+            </div>
+          </div>
+          <div class="hero-slide">
+            <div class="hero-slide-bg" style="background-image: url('images/shop8.jpg')"></div>
+            <div class="hero-slide-overlay"></div>
+            <div class="hero-slide-content">
+              <div class="hero-slide-badge">无损安装</div>
+              <div class="hero-slide-title">对插安装 · 不破线不剪线</div>
+              <div class="hero-slide-sub">原车线路安全 · 4S店质保不受影响</div>
+            </div>
+          </div>
         </div>
-        <div class="hero-stats">
-          <div class="hero-stat"><div class="hero-stat-num">13</div><div class="hero-stat-label">年行业经验</div></div>
-          <div class="hero-stat"><div class="hero-stat-num">20+</div><div class="hero-stat-label">授权品牌</div></div>
-          <div class="hero-stat"><div class="hero-stat-num">终身</div><div class="hero-stat-label">售后服务</div></div>
-        </div>
+        <div class="hero-carousel-dots" id="heroCarouselDots"></div>
+        <button class="hero-carousel-btns hero-carousel-prev" onclick="shiftHeroCarousel(-1)">‹</button>
+        <button class="hero-carousel-btns hero-carousel-next" onclick="shiftHeroCarousel(1)">›</button>
       </div>
-      <!-- 四个快捷入口 -->
-      <div class="home-shortcuts">
-        <div class="shortcut-card" onclick="goPage('brands')">
-          <div class="sc-icon">🏆</div>
-          <div class="sc-title">品牌代理</div>
-          <div class="sc-sub">20+国际品牌</div>
+    </div>
+
+    <!-- 3 feature highlights -->
+    <div class="hero-features">
+      <div class="hero-feature">
+        <div class="hero-feature-icon">🏆</div>
+        <div class="hero-feature-title">20+授权品牌</div>
+        <div class="hero-feature-desc">丹拿·劲浪·摩雷·JL Audio等国际一线品牌</div>
+      </div>
+      <div class="hero-feature">
+        <div class="hero-feature-icon">🔧</div>
+        <div class="hero-feature-title">无损改装</div>
+        <div class="hero-feature-desc">对插安装，不破线不剪线，保障原车质保</div>
+      </div>
+      <div class="hero-feature">
+        <div class="hero-feature-icon">🎛️</div>
+        <div class="hero-feature-title">DSP调音</div>
+        <div class="hero-feature-desc">专业调音师精准调音，还原真实舞台感</div>
+      </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="hero-stats-wrapper">
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">13</div>
+          <div class="hero-stat-label">年经验</div>
         </div>
-        <div class="shortcut-card" onclick="goPage('about')">
-          <div class="sc-icon">🏠</div>
-          <div class="sc-title">关于璞声</div>
-          <div class="sc-sub">13年老店</div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">20+</div>
+          <div class="hero-stat-label">品牌</div>
         </div>
-        <div class="shortcut-card" onclick="goPage('services')">
-          <div class="sc-icon">🔧</div>
-          <div class="sc-title">服务项目</div>
-          <div class="sc-sub">音响·隔音</div>
-        </div>
-        <div class="shortcut-card" onclick="goPage('cases')">
-          <div class="sc-icon">📷</div>
-          <div class="sc-title">案例展示</div>
-          <div class="sc-sub">改装案例</div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">终身</div>
+          <div class="hero-stat-label">售后</div>
         </div>
       </div>
     </div>
+
+    <!-- 四个快捷入口 -->
+    <div class="home-shortcuts">
+      <div class="shortcut-card" onclick="goPage('brands')">
+        <div class="sc-icon">🏆</div>
+        <div class="sc-title">品牌代理</div>
+        <div class="sc-sub">20+国际品牌</div>
+      </div>
+      <div class="shortcut-card" onclick="goPage('about')">
+        <div class="sc-icon">🏠</div>
+        <div class="sc-title">关于璞声</div>
+        <div class="sc-sub">13年老店</div>
+      </div>
+      <div class="shortcut-card" onclick="goPage('services')">
+        <div class="sc-icon">🔧</div>
+        <div class="sc-title">服务项目</div>
+        <div class="sc-sub">音响·隔音</div>
+      </div>
+      <div class="shortcut-card" onclick="goPage('cases')">
+        <div class="sc-icon">📷</div>
+        <div class="sc-title">案例展示</div>
+        <div class="sc-sub">改装案例</div>
+      </div>
+    </div>
   </div>
+
+  <!-- CASES -->
   <div class="page" id="page-cases">
     <div class="page-inner">
       <div class="page-title">案例展示</div>
