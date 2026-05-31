@@ -90,6 +90,8 @@
       flex-shrink: 0; padding: 9px 16px; color: var(--muted);
       text-decoration: none; font-size: 0.82rem;
       border-bottom: 2px solid transparent; transition: all 0.2s; cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
     }
     .page-tabs a:hover { color: #ccc; }
     .page-tabs a.active { color: var(--gold); border-bottom-color: var(--gold); }
@@ -529,12 +531,15 @@
   }
 
   function goPage(name) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById('page-' + name).classList.add('active');
+    var target = document.getElementById('page-' + name);
+    if (!target) return;
+    document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+    target.classList.add('active');
     document.getElementById('mobileMenu').classList.remove('open');
     document.querySelector('.hamburger').classList.remove('open');
-    document.getElementById('navBack').classList.toggle('show', name !== 'home');
-    document.getElementById('page-' + name).scrollTop = 0;
+    var backBtn = document.getElementById('navBack');
+    if (backBtn) backBtn.classList.toggle('show', name !== 'home');
+    target.scrollTop = 0;
   }
 
   function goHome() {
@@ -543,7 +548,19 @@
     document.querySelector('.page-tabs a').classList.add('active');
   }
 
-  // Carousel
+  // Event delegation for touch devices
+  document.addEventListener('click', function(e) {
+    var target = e.target.closest('[onclick]');
+    if (!target) return;
+    var handler = target.getAttribute('onclick');
+    if (handler && handler.indexOf('goPage') !== -1) {
+      var match = handler.match(/goPage\('([^']+)'\)/);
+      if (match) {
+        e.preventDefault();
+        goPage(match[1]);
+      }
+    }
+  });
   (function() {
     const track = document.getElementById('carouselTrack');
     const dotsContainer = document.getElementById('carouselDots');
