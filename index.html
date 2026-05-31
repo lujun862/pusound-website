@@ -551,18 +551,28 @@
     document.querySelector('.page-tabs a').classList.add('active');
   }
 
-  // Event delegation for touch devices
-  document.addEventListener('click', function(e) {
+  // Event delegation for touch/click on shortcut cards
+  function handleNavClick(e) {
     var target = e.target.closest('[onclick]');
     if (!target) return;
     var handler = target.getAttribute('onclick');
-    if (handler && handler.indexOf('goPage') !== -1) {
-      var match = handler.match(/goPage\('([^']+)'\)/);
-      if (match) {
-        e.preventDefault();
-        goPage(match[1]);
-      }
+    if (!handler || handler.indexOf('goPage') === -1) return;
+    var match = handler.match(/goPage\('([^']+)'\)/);
+    if (match) {
+      e.preventDefault();
+      e.stopPropagation();
+      goPage(match[1]);
     }
+  }
+  document.addEventListener('click', handleNavClick);
+  document.addEventListener('touchend', function(e) {
+    var target = e.target.closest('[onclick]');
+    if (!target) return;
+    var handler = target.getAttribute('onclick');
+    if (!handler || handler.indexOf('goPage') === -1) return;
+    e.preventDefault();
+    e.stopPropagation();
+    goPage(target.getAttribute('onclick').match(/goPage\('([^']+)'\)/)[1]);
   });
   (function() {
     const track = document.getElementById('carouselTrack');
