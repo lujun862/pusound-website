@@ -198,8 +198,8 @@
       flex-shrink: 0;
     }
     .shortcut-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
       border-radius: 10px;
       padding: 10px 6px;
       text-align: center;
@@ -207,6 +207,7 @@
       transition: all 0.2s;
       -webkit-tap-highlight-color: transparent;
       touch-action: manipulation;
+      backdrop-filter: blur(8px);
     }
     .shortcut-card:hover { background: rgba(212,175,55,0.08); border-color: rgba(212,175,55,0.2); }
     .sc-icon { font-size: 1.2rem; margin-bottom: 4px; }
@@ -330,33 +331,30 @@
           <div class="hero-stat"><div class="hero-stat-num">终身</div><div class="hero-stat-label">售后服务</div></div>
         </div>
       </div>
+      <!-- 四个快捷入口 -->
+      <div class="home-shortcuts">
+        <div class="shortcut-card" onclick="goPage('brands')">
+          <div class="sc-icon">🏆</div>
+          <div class="sc-title">品牌代理</div>
+          <div class="sc-sub">20+国际品牌</div>
+        </div>
+        <div class="shortcut-card" onclick="goPage('about')">
+          <div class="sc-icon">🏠</div>
+          <div class="sc-title">关于璞声</div>
+          <div class="sc-sub">13年老店</div>
+        </div>
+        <div class="shortcut-card" onclick="goPage('services')">
+          <div class="sc-icon">🔧</div>
+          <div class="sc-title">服务项目</div>
+          <div class="sc-sub">音响·隔音</div>
+        </div>
+        <div class="shortcut-card" onclick="goPage('cases')">
+          <div class="sc-icon">📷</div>
+          <div class="sc-title">案例展示</div>
+          <div class="sc-sub">改装案例</div>
+        </div>
+      </div>
     </div>
-    <!-- 四个快捷入口在底部 -->
-    <div class="home-shortcuts">
-      <div class="shortcut-card" onclick="goPage('brands')">
-        <div class="sc-icon">🏆</div>
-        <div class="sc-title">品牌代理</div>
-        <div class="sc-sub">20+国际品牌</div>
-      </div>
-      <div class="shortcut-card" onclick="goPage('about')">
-        <div class="sc-icon">🏠</div>
-        <div class="sc-title">关于璞声</div>
-        <div class="sc-sub">13年老店</div>
-      </div>
-      <div class="shortcut-card" onclick="goPage('services')">
-        <div class="sc-icon">🔧</div>
-        <div class="sc-title">服务项目</div>
-        <div class="sc-sub">音响·隔音</div>
-      </div>
-      <div class="shortcut-card" onclick="goPage('cases')">
-        <div class="sc-icon">📷</div>
-        <div class="sc-title">案例展示</div>
-        <div class="sc-sub">改装案例</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CASES -->
   <div class="page" id="page-cases">
     <div class="page-inner">
       <div class="page-title">案例展示</div>
